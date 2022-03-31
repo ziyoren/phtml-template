@@ -1,0 +1,14 @@
+{
+    "name": "ziyoren/html-template",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ziyoren\\HtmlTemplate\\": "vendor/ziyoren/html-template/src"
+        }
+    },
+    "authors": [{
+        "name": "Liao Jianshan",
+        "email": "10775937@qq.com"
+    }],
+    "require": {}
+}

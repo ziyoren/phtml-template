@@ -1,0 +1,6 @@
+@import './variable.scss';
+.body-box {
+    min-height: 300px;
+    margin: 0 auto;
+    width: $mainWidth;
+}

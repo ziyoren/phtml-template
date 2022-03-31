@@ -1,0 +1,12 @@
+@import './variable.scss';
+
+footer {
+    background-color: rgb(37, 104, 228);
+    min-height: 200px;
+    color: #fff;
+
+    .footer-box {
+        width: $mainWidth;
+        margin: 0 auto;
+    }
+}

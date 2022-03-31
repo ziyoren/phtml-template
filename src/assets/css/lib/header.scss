@@ -1,0 +1,58 @@
+@import './variable.scss';
+$navbarHeight: 80px;
+header {
+    height: 500px;
+    background-color: #438ed4;
+    background-image: url(https://dss1.bdstatic.com/lvoZeXSm1A5BphGlnYG/skin/820.jpg?2);
+    background-size: cover;
+    &.header__index {
+        height: 100%;
+        background-color: rgb(135, 193, 231);
+    }
+    &.header__about {
+        background-image: url(https://dss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/1023.jpg?2);
+    }
+    &.header__classic-case {
+        background-image: url(https://dss2.bdstatic.com/kfoZeXSm1A5BphGlnYG/skin/825.jpg?2);
+    }
+    &.header__core-technology {
+        background-image: url(https://dss0.bdstatic.com/l4oZeXSm1A5BphGlnYG/skin/115.jpg?2);
+        background-position: center;
+    }
+    &.header__news {
+        background-image: url(https://dss2.bdstatic.com/lfoZeXSm1A5BphGlnYG/skin/37.jpg?2);
+        background-position: center -100px;
+    }
+    &.header__human-resources {
+        background-image: url(https://dss2.bdstatic.com/lfoZeXSm1A5BphGlnYG/skin/813.jpg?2);
+        background-position: right bottom;
+    }
+    &.header__contact-us {
+        background-image: url(https://dss2.bdstatic.com/kfoZeXSm1A5BphGlnYG/skin/33.jpg?2);
+        background-position: center;
+    }
+    .navbar {
+        height: $navbarHeight;
+        line-height: $navbarHeight;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-bottom: 0.5px solid #f8f8f8;
+        .navbar-warp {
+            width: $mainWidth;
+            margin: 0 auto;
+            .logo {
+                float: left;
+                max-width: 300px;
+                min-width: 80px;
+                height: $navbarHeight;
+                img {
+                    min-width: 100%;
+                    max-height: 100%;
+                }
+            }
+            .menu-bar {
+                float: right;
+                min-width: 700px;
+            }
+        }
+    }
+}

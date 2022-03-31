@@ -1,0 +1,84 @@
+#!/usr/bin/env node
+
+const { appendFile, writeFile } = require('fs')
+const path = require('path')
+const { spawn } = require('child_process')
+const JsBeautify = require('js-beautify')
+const PAGES = require('./page.json')
+
+
+let { argv } = process;
+
+writeLog(null);
+writeLog('Start build html.');
+
+if (argv.length > 2) {
+    for (let i = 2; i < argv.length; i++) {
+        let name = argv[i];
+        let index = pages.findIndex(item => item.name === name)
+            // console.log({ i, index, name })
+        if (index < 0) {
+            writeLog(`${name}不是有效的name值。`, 'error')
+        } else {
+            buildHTML(pages[index])
+        }
+    }
+} else {
+    let { pages } = PAGES;
+    pages.forEach(item => {
+        buildHTML(item)
+    })
+}
+
+
+function buildHTML(page) {
+    let name = page.name;
+    let php2html = spawn('php', ['php/index.php', name]);
+    let html = [],
+        error = [];
+    php2html.stdout.on('data', (data) => {
+        html.push(data)
+    })
+    php2html.stderr.on('data', (data) => {
+        error.push(data)
+    })
+    php2html.on('exit', (code, signal) => {
+        if (code == 0) {
+            let code = html.toString();
+            let beautifyHtml = JsBeautify.html(code);
+            // console.log('\n\n', { name, hl: code.length, bl: beautifyHtml.length }, '\n\n')
+            writeHtml(name, beautifyHtml)
+        }
+        if (error != '') {
+            writeLog(`[code:${code}] ${error.toString()}`, 'error')
+        }
+    })
+}
+
+
+function writeHtml(name, html) {
+    let p = path.resolve(__dirname, 'dist/', name + '.html')
+    writeFile(p, html, { encoding: 'utf-8' }, (err) => {
+        if (err) {
+            writeLog(err.toString(), 'error')
+        } else {
+            let msg = `Build success: ${name}.html`;
+            writeLog(msg)
+        }
+    })
+}
+
+function writeLog(content, level = 'info') {
+    let logFile = path.resolve(__dirname, 'build.html.log');
+    if (content === null) {
+        content = '';
+    } else {
+        content = `[${new Date().toLocaleString()}][${level.toUpperCase()}] ${content}`
+        console.log(content);
+    }
+    appendFile(logFile, content + '\n', { encoding: 'utf-8' }, (err) => {
+        if (err) {
+            console.log('log write fail.', err)
+        }
+    })
+}

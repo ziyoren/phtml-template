@@ -1,0 +1,43 @@
+{
+    "pages": [{
+            "title": "首页",
+            "name": "index",
+            "component": "index.body"
+        },
+        {
+            "title": "关于我们",
+            "name": "about",
+            "component": "about.body"
+        },
+        {
+            "title": "经典案例",
+            "name": "classic-case",
+            "component": "classic-case.body"
+        },
+        {
+            "title": "核心技术",
+            "name": "core-technology",
+            "component": "core-technology.body"
+        },
+        {
+            "title": "新闻动态",
+            "name": "news",
+            "component": "news/news.body"
+        },
+        {
+            "title": "人力资源",
+            "name": "human-resources",
+            "component": "human-resources.body"
+        },
+        {
+            "title": "联系我们",
+            "name": "contact-us",
+            "component": "contact-us.body"
+        },
+        {
+            "title": "出错啦！",
+            "name": "404",
+            "component": "404"
+        }
+    ]
+}

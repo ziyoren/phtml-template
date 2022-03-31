@@ -1,0 +1,11 @@
+{
+    "name": "ziyoren/html-template",
+    "type": "library",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ziyoren\\HtmlTemplate\\": "src"
+        }
+    }
+}
