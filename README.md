@@ -97,27 +97,27 @@ npm run release
 #### template
 * 类型： `string`
 * 默认： `template/index`
-整个项目的基础布局模板。基于php工作目录的相对路径，即对应`php/template/index.php`文件，配置中可省略`.php`的扩展名。
+* 说明：整个项目的基础布局模板。基于php工作目录的相对路径，即对应`php/template/index.php`文件，配置中可省略`.php`的扩展名。
 
 #### pages
 * 类型： `json[]`
-多页面配置数组。由一个或多个页面描述配置json组成。
+* 说明：多页面配置数组。由一个或多个页面描述配置json组成。
 
 **title**
 * 类型： `string`
-页面显示的title。可由PHP代码`ziyo::title()`获取并输出在模板中。
+* 说明：页面显示的title。可由PHP代码`ziyo::title()`获取并输出在模板中。
 
 **name**
 * 类型： `string`
-每个页面唯一的名称。同时也是生成静态文件的文件名
+* 说明：每个页面唯一的名称。同时也是生成静态文件的文件名
 
 **component**
 * 类型： `string`
-指定页面的组件模板。是基于php工作目录的相对路径，`.php`扩展名可心省略。
+* 说明：指定页面的组件模板。是基于php工作目录的相对路径，`.php`扩展名可心省略。
 
 **template**
 * 类型： `string`
-指定本页面的基础模板。优先级高于根节点的template。
+* 说明：指定本页面的基础模板。优先级高于根节点的template。
 
 ## PHP相关代码
 
